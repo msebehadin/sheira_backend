@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Background Changer</title>
+    <style>
+        body {
+            transition: background-color 0.5s ease;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #stopBtn {
+            background: #dc3545;
+        }
+        #stopBtn:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Background Color Changer</h2>
+    <p>Background changes every second</p>
+    <div class="buttons">
+        <button id="startBtn">Start Changing</button>
+        <button id="stopBtn">Stop Changing</button>
+    </div>
+    
+    <script>
+        let intervalId = null;
+        const body = document.body;
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        
+        function startChanging() {
+            
+            if (intervalId) return;
+            
+            
+            body.style.backgroundColor = getRandomColor();
+            
+            
+            intervalId = setInterval(() => {
+                body.style.backgroundColor = getRandomColor();
+            }, 1000);
+            
+            console.log("Started color changing");
+        }
+        
+        function stopChanging() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+                console.log("Stopped color changing");
+            }
+        }
+        
+        
+        startBtn.addEventListener('click', startChanging);
+        stopBtn.addEventListener('click', stopChanging);
+        
+        
+        startChanging();
+    </script>
+</body>
+</html>
