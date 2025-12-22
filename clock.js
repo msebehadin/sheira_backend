@@ -1,10 +1,5 @@
-let count=10;
-const timer=setInterval(()=>{
-    console.log(count)
-    if (count==0){
-        console.log('time is up')
-        clearInterval(timer)
-    }
-    count--
-
-},1000)
+setInterval(() => {
+    const now = new Date();
+    const time = now.toLocaleString(); 
+    console.log("Current time:", time);
+}, 1000);
