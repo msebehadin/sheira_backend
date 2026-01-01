@@ -9,6 +9,7 @@ const fruits = [
   { id: 5, name: "pineapple", price: 80 },
 ];
 const app = express();
+app.use(express.json())
 //route to get all fruits
 app.get("/fruits", (req, res) => {
   res.json(fruits);
