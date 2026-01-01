@@ -3,6 +3,7 @@ import ProductRoute from './router.js'
 import FruitRoute from './crudServer.js'
 const app=express();
 const PORT=5000;
+app.use(express.json());
 app.get('/',(req,res)=>{
     console.log('welcome to mohammed')
     res.json({message:'welcome to sheira backend'})
