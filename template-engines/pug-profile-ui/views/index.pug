@@ -1,0 +1,33 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title User profile - Pug
+    //- bootstrap CDN
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css")
+  
+  body.bg-light
+    .container.mt-5
+      .row.justify-content-center
+        .col-md-6
+          .card.shadow
+            .card-header.bg-primary.text-white
+              h3.mb-0 User Profile
+            .card-body
+              //- outputting simple variables
+              h4= user.name
+              p.text-muted= user.profession
+              hr
+              p
+                strong Age: 
+                | #{user.age}
+              
+              h5 Skills:
+              ul.list-group
+                //- looping the skills array
+                each skill in user.skills
+                  li.list-group-item= skill
+
+    //- footer section
+    footer.text-center.mt-4
+      p.text-secondary Built with Pug for Node.js

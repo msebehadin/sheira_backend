@@ -1,5 +1,6 @@
 import express from 'express'
 const app=express()
+app.set('view engine','pug')
 app.get('/',(req,res)=>{
 const user={
   name: "Fatima Noor",
@@ -7,7 +8,7 @@ const user={
   profession: "Software Developer",
   skills: ["Node.js", "Express", "MongoDB", "EJS"]
 }
-
+res.render('index',{user})
 })
 app.listen(4000,()=>{
     console.log('pug is running')
