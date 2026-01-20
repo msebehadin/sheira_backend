@@ -10,6 +10,6 @@ app.get('/',(req,res)=>{
 }
 res.render('index',{user})
 })
-app.listen(400,()=>{
+app.listen(4000,()=>{
     console.log('the ejs is running')
 })
